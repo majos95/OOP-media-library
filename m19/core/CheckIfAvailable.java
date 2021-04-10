@@ -1,0 +1,21 @@
+package m19.core;
+
+import java.io.Serializable;
+
+public class CheckIfAvailable extends Rule implements Serializable{
+	
+	private static final long serialVersionUID = 201901101348L;
+	
+	private Work _work;
+
+	public CheckIfAvailable(int id, Work work) {
+		super(id);
+		_work = work;
+	}
+
+	@Override
+	protected boolean checkValidity() {
+		return !(_work.getNumberOfCopies() == 0);	
+	}
+
+}
